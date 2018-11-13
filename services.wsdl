@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<wsdl:definitions
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+        name="DMXSoapService"
+        xmlns:tns="urn:DMXAjaxSoap"
+        targetNamespace="urn:DMXAjaxSoap">
+
+    <wsdl:types>
+        <xs:schema
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:tns="urn:DMXAjaxSoap"
+                attributeFormDefault="unqualified"
+                elementFormDefault="unqualified"
+                targetNamespace="urn:DMXAjaxSoap">
+
+
+            <!-- Element CRUD PRODUCT-->
+            <xs:element name="crudProductoRequest" type="tns:crudProductoRequest"/>
+            <xs:complexType name="crudProductoRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjProducto" nillable="true" type="tns:productoIN"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="productoIN">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="flag" type="xs:string"/>
+                    <xs:element minOccurs="1" name="codigo" type="xs:string"/>
+                    <xs:element minOccurs="1" name="nombre" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+                    <xs:element minOccurs="1" name="categoria" type="xs:int"/>
+                    <xs:element minOccurs="0" name="estado" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:element name="crudProductoResponse" type="tns:crudProductoResponse"/>
+            <xs:complexType name="crudProductoResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjProducto" nillable="true" type="tns:productoOUT"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="productoOUT">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="idProducto" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Element CRUD PRODUCT-->
+
+
+
+            <!-- Element CRUD EMBARQUE-->
+            <xs:element name="crudEmbarqueRequest" type="tns:crudEmbarqueRequest"/>
+            <xs:complexType name="crudEmbarqueRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjEmbarque" nillable="true" type="tns:embarqueIN"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="embarqueIN">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="flag" type="xs:string"/>
+                    <xs:element minOccurs="0" name="hojaAccion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fechaHojaAccion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="volumen" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pctToleranciaPosi" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pctToleranciaNeg" type="xs:string"/>
+                    <xs:element minOccurs="0" name="incoterm" type="xs:string"/>
+                    <xs:element minOccurs="1" name="strCodigoProd" type="xs:string"/>
+                    <xs:element minOccurs="1" name="strTipo" type="xs:string"/>
+                    <xs:element minOccurs="1" name="intAnnoEmbarque" type="xs:int"/>
+                    <xs:element minOccurs="0" name="strModalidad" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dateDescarga" type="xs:string"/>
+                    <xs:element minOccurs="0" name="strEmbarque" type="xs:string"/>
+                    <xs:element minOccurs="1" name="posicion" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:element name="crudEmbarqueResponse" type="tns:crudEmbarqueResponse"/>
+            <xs:complexType name="crudEmbarqueResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjEmbarque" nillable="true" type="tns:embarqueOUT"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="embarqueOUT">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="posicion" type="xs:int"/>
+                    <xs:element minOccurs="1" name="strEmbarque" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Element CRUD EMBARQUE-->
+
+
+
+            <!-- Element LIST INCOTERM-->
+            <xs:element name="listIncotermRequest" type="tns:listIncotermRequest"/>
+            <xs:complexType name="listIncotermRequest"></xs:complexType>
+
+            <xs:element name="listIncotermResponse" type="tns:listIncotermResponse"/>
+            <xs:complexType name="listIncotermResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjIncoterm" nillable="true" type="tns:listIncotermOUT"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="listIncotermOUT">
+                <xs:sequence>
+                    <xs:element minOccurs="1" name="idIncoterm" type="xs:int"/>
+                    <xs:element minOccurs="1" name="strIncoterm" type="xs:string"/>
+                    <xs:element minOccurs="1" name="strDescripcion" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Element LIST INCOTERM-->
+
+
+            <!-- Element REPORTE DIARIO-->
+            <xs:element name="dataReporteDiarioRequest" type="tns:dataReporteDiarioRequest"/>
+            <xs:complexType name="dataReporteDiarioRequest"></xs:complexType>
+
+            <xs:element name="dataReporteDiarioResponse" type="tns:dataReporteDiarioResponse"/>
+            <xs:complexType name="dataReporteDiarioResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listObjReporteDiario" type="tns:dataReporteDiarioOUT"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="dataReporteDiarioOUT">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listImportacion" nillable="true" type="tns:importacion"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="listExportacion" nillable="true" type="tns:exportacion"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="importacion">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="nombreProducto" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numEmbarque" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombreProveedor" type="xs:string"/>
+                    <xs:element minOccurs="0" name="volumen" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ventanaFlotante" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ventanaContractual" type="xs:string"/>
+                    <xs:element minOccurs="0" name="puertoDescarga" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bt" type="xs:string"/>
+                    <xs:element minOccurs="0" name="eta" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombreInspector" type="xs:string"/>
+                    <xs:element minOccurs="0" name="agenteMaritimo" type="xs:string"/>
+                    <xs:element minOccurs="0" name="estadoSituacional" type="xs:string"/>
+                    <xs:element minOccurs="0" name="supervisorAsignado" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="exportacion">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="nombreProducto" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numEmbarque" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombreProveedor" type="xs:string"/>
+                    <xs:element minOccurs="0" name="volumen" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ventanaFlotante" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ventanaContractual" type="xs:string"/>
+                    <xs:element minOccurs="0" name="puertoDescarga" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bt" type="xs:string"/>
+                    <xs:element minOccurs="0" name="eta" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombreInspector" type="xs:string"/>
+                    <xs:element minOccurs="0" name="agenteMaritimo" type="xs:string"/>
+                    <xs:element minOccurs="0" name="estadoSituacional" type="xs:string"/>
+                    <xs:element minOccurs="0" name="supervisorAsignado" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <!-- Element REPORTE DIARIO-->
+
+
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+
+
+    <!-- Messages CRUD PRODUCT-->
+    <wsdl:message name="crudProductoRequest">
+        <wsdl:part element="tns:crudProductoRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="crudProductoResponse">
+        <wsdl:part element="tns:crudProductoResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+    </wsdl:message>
+
+
+    <!-- Messages CRUD EMBARQUE-->
+    <wsdl:message name="crudEmbarqueRequest">
+        <wsdl:part element="tns:crudEmbarqueRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="crudEmbarqueResponse">
+        <wsdl:part element="tns:crudEmbarqueResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+
+
+    <!-- Messages LIST INCOTERM-->
+    <wsdl:message name="listIncotermRequest">
+        <wsdl:part element="tns:listIncotermRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listIncotermResponse">
+        <wsdl:part element="tns:listIncotermResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+
+
+    <!-- Messages DATA REPORTE DIARIO-->
+    <wsdl:message name="dataReporteDiarioRequest">
+        <wsdl:part element="tns:dataReporteDiarioRequest" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="dataReporteDiarioResponse">
+        <wsdl:part element="tns:dataReporteDiarioResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+
+
+
+    <!-- Port -->
+    <wsdl:portType name="DMXWebService">
+        <wsdl:operation name="crudProducto">
+            <wsdl:input message="tns:crudProductoRequest" name="crudProductoRequest"></wsdl:input>
+            <wsdl:output message="tns:crudProductoResponse" name="crudProductoResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="crudEmbarque">
+            <wsdl:input message="tns:crudEmbarqueRequest" name="crudEmbarqueRequest"></wsdl:input>
+            <wsdl:output message="tns:crudEmbarqueResponse" name="crudEmbarqueResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listIncoterm">
+            <wsdl:input message="tns:listIncotermRequest" name="listIncotermRequest"></wsdl:input>
+            <wsdl:output message="tns:listIncotermResponse" name="listIncotermResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="dataReporteDiario">
+            <wsdl:input message="tns:dataReporteDiarioRequest" name="dataReporteDiarioRequest"></wsdl:input>
+            <wsdl:output message="tns:dataReporteDiarioResponse" name="dataReporteDiarioResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+
+
+    <!-- Bindings for each operation -->
+    <wsdl:binding name="DMXWebServiceServiceSoapBinding" type="tns:DMXWebService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="crudProducto">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="crudProductoRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="crudProductoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="crudEmbarque">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="crudEmbarqueRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="crudEmbarqueResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="listIncoterm">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listIncotermRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listIncotermResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="dataReporteDiario">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="dataReporteDiarioRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="dataReporteDiarioResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+
+    <!-- Endpoint -->
+    <wsdl:service name="DMXSoapService">
+        <wsdl:port binding="tns:DMXWebServiceServiceSoapBinding" name="DMXWebServicePort">
+            <soap:address location="http://localhost:8099/DMX/mainWebService.php?path=create-server"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
